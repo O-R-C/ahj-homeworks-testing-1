@@ -1,4 +1,5 @@
-import Input from '@components/ui/Input/Input'
+import Input from '../ui/Input/Input'
+import Button from '../ui/Button/Button'
 
 export default class CreditCardValidatorUI {
   app = CreditCardValidatorUI.getElement('app')
@@ -24,7 +25,7 @@ export default class CreditCardValidatorUI {
     const cards = CreditCardValidatorUI.getElement('cards')
     const controls = CreditCardValidatorUI.getElement('controls')
     const input = new Input({ classes: '' }).element
-    const button = CreditCardValidatorUI.getElement('btn', 'button')
+    const button = new Button({ title: 'Click to Validate' }).element
     controls.append(input, button)
     app.append(cards, controls)
 

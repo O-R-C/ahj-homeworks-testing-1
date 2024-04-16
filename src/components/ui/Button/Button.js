@@ -1,6 +1,6 @@
-import styles from './Input.module.css'
+import styles from './Button.module.css'
 
-export default class Input {
+export default class Button {
   #params
 
   /**
@@ -8,8 +8,7 @@ export default class Input {
    * @property {String|String[]} classes
    * @property {String} type
    * @property {String} id
-   * @property {String} placeholder
-   * @property {boolean} required
+   * @property {String} title
    */
 
   /**
@@ -17,9 +16,8 @@ export default class Input {
    * {
    * classes = [styles.input],
    * id = '',
-   * type = 'text',
-   * required = true,
-   * placeholder = '...'
+   * type = 'button',
+   * title = 'button',
    * }
    */
   constructor(element) {
@@ -30,18 +28,17 @@ export default class Input {
   }
 
   #getDefaultParams() {
-    return { classes: [], id: '', type: 'text', required: true, placeholder: '...' }
+    return { classes: [], id: '', type: 'button', title: 'button' }
   }
 
   #getClasses(classes) {
     const classesArray = Array.isArray(classes) ? classes : [classes]
-
     return classesArray.reduce(
       (acc, className) => {
         if (className) return [...acc, className]
         return acc
       },
-      [styles.input]
+      [styles.button]
     )
   }
 
@@ -53,11 +50,10 @@ export default class Input {
   }
 
   #createElement() {
-    const element = document.createElement('input')
+    const element = document.createElement('button')
 
     element.type = this.#params.type
-    element.required = this.#params.required
-    element.placeholder = this.#params.placeholder
+    element.textContent = this.#params.title
     element.classList.add(...this.#getClasses(this.#params.classes))
 
     this.#params.id && (element.id = this.#params.id)
