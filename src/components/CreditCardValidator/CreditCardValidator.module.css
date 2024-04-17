@@ -16,3 +16,27 @@
 .h1 {
   text-align: center;
 }
+
+div[class*='cards'] div[class*='Visa'] {
+  background-image: url('../../images/Visa.png');
+}
+
+div[class*='cards'] div[class*='MasterCard'] {
+  background-image: url('../../images/MasterCard.png');
+}
+
+div[class*='cards'] div[class*='DinersClub'] {
+  background-image: url('../../images/DinersClub.png');
+}
+
+div[class*='cards'] div[class*='AmericanExpress'] {
+  background-image: url('../../images/AmericanExpress.png');
+}
+
+div[class*='cards'] div[class*='Discover'] {
+  background-image: url('../../images/Discover.png');
+}
+
+div[class*='cards'] div[class*='Mir'] {
+  background-image: url('../../images/Mir.png');
+}

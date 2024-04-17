@@ -4,7 +4,15 @@ import Card from '../Card/Card'
 import styles from './Cards.module.css'
 
 export default class Cards {
-  #cards = ['Visa', 'MasterCard', 'DinersClub', 'AmericanExpress', 'Discover', 'Mir']
+  #cards
+
+  /**
+   *
+   * @param {String[]} cards
+   */
+  constructor(cards) {
+    this.#cards = cards
+  }
 
   /**
    * @returns элемент
@@ -17,7 +25,7 @@ export default class Cards {
     const cards = new Div({ classes: styles.cards }).element
 
     this.#cards.forEach((card) => {
-      cards.append(new Card(styles[card]).element)
+      cards.append(new Card(card).element)
     })
 
     return cards

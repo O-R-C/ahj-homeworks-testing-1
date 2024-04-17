@@ -5,6 +5,10 @@ import styles from './Card.module.css'
 export default class Card {
   #classes
 
+  /**
+   *
+   * @param {String|String[]} classes
+   */
   constructor(classes) {
     this.#classes = classes
   }
