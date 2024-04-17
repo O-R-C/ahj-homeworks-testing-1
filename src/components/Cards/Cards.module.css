@@ -1,0 +1,28 @@
+.cards {
+  display: flex;
+  gap: 5px;
+}
+
+.Visa {
+  background-image: url('../../images/Visa.png');
+}
+
+.MasterCard {
+  background-image: url('../../images/MasterCard.png');
+}
+
+.DinersClub {
+  background-image: url('../../images/DinersClub.png');
+}
+
+.AmericanExpress {
+  background-image: url('../../images/AmericanExpress.png');
+}
+
+.Discover {
+  background-image: url('../../images/Discover.png');
+}
+
+.Mir {
+  background-image: url('../../images/Mir.png');
+}

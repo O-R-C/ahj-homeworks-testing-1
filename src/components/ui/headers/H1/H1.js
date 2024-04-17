@@ -1,12 +1,11 @@
-import styles from './Button.module.css'
+import styles from './H1.module.css'
 
-export default class Button {
+export default class H1 {
   #params
 
   /**
    * @typedef {object} element
    * @property {String|String[]} classes
-   * @property {String} type
    * @property {String} id
    * @property {String} title
    */
@@ -14,10 +13,9 @@ export default class Button {
   /**
    * @param {element} element
    * {
-   * classes = [styles.button],
+   * classes = [styles.h1],
    * id = '',
-   * type = 'button',
-   * title = 'button',
+   * title = 'Header 1',
    * }
    */
   constructor(element) {
@@ -28,17 +26,18 @@ export default class Button {
   }
 
   #getDefaultParams() {
-    return { classes: [], id: '', type: 'button', title: 'button' }
+    return { classes: [], id: '', title: 'Header 1' }
   }
 
   #getClasses(classes) {
     const classesArray = Array.isArray(classes) ? classes : [classes]
+
     return classesArray.reduce(
       (acc, className) => {
         if (className) return [...acc, className]
         return acc
       },
-      [styles.button]
+      [styles.h1]
     )
   }
 
@@ -50,9 +49,8 @@ export default class Button {
   }
 
   #createElement() {
-    const element = document.createElement('button')
+    const element = document.createElement('h1')
 
-    element.type = this.#params.type
     element.textContent = this.#params.title
     element.classList.add(...this.#getClasses(this.#params.classes))
 

@@ -1,12 +1,11 @@
-import styles from './Button.module.css'
+import styles from './Div.module.css'
 
-export default class Button {
+export default class Div {
   #params
 
   /**
    * @typedef {object} element
    * @property {String|String[]} classes
-   * @property {String} type
    * @property {String} id
    * @property {String} title
    */
@@ -14,10 +13,9 @@ export default class Button {
   /**
    * @param {element} element
    * {
-   * classes = [styles.button],
+   * classes = [styles.div],
    * id = '',
-   * type = 'button',
-   * title = 'button',
+   * title = '',
    * }
    */
   constructor(element) {
@@ -28,17 +26,18 @@ export default class Button {
   }
 
   #getDefaultParams() {
-    return { classes: [], id: '', type: 'button', title: 'button' }
+    return { classes: [], id: '', title: '' }
   }
 
   #getClasses(classes) {
     const classesArray = Array.isArray(classes) ? classes : [classes]
+
     return classesArray.reduce(
       (acc, className) => {
         if (className) return [...acc, className]
         return acc
       },
-      [styles.button]
+      [styles.div]
     )
   }
 
@@ -50,13 +49,12 @@ export default class Button {
   }
 
   #createElement() {
-    const element = document.createElement('button')
+    const element = document.createElement('div')
 
-    element.type = this.#params.type
-    element.textContent = this.#params.title
     element.classList.add(...this.#getClasses(this.#params.classes))
 
     this.#params.id && (element.id = this.#params.id)
+    this.#params.title && (element.textContent = this.#params.title)
 
     return element
   }
