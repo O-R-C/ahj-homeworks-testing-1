@@ -1,3 +1,9 @@
 .result {
-  min-height: 50px;
+  min-height: 23px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 20px;
 }

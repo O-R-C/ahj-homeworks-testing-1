@@ -40,3 +40,13 @@ div[class*='cards'] div[class*='Discover'] {
 div[class*='cards'] div[class*='Mir'] {
   background-image: url('../../images/Mir.png');
 }
+
+.valid::after {
+  content: 'correct number';
+  color: green;
+}
+
+.invalid::after {
+  content: 'wrong number';
+  color: red;
+}

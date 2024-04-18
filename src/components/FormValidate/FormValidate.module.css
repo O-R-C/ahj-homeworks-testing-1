@@ -1,8 +1,14 @@
-.form {
+.formValidate {
   display: flex;
   gap: 10px;
 }
 
 .input {
   flex: 1 1;
+}
+
+.btnValidate {
+  background-color: rgb(28, 133, 28);
+  color: white;
+  border: none;
 }

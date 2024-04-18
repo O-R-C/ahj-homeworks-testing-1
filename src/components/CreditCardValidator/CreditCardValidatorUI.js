@@ -19,10 +19,17 @@ export default class CreditCardValidatorUI {
     const cards = new Cards(this.#cards).element
     const formValidate = new FormValidate().element
     const result = new ValidationResult().element
-    // const controls = new Div({ classes: 'controls' }).element
-    // controls.append(formValidate)
     app.append(header, cards, formValidate, result)
 
     return app
+  }
+
+  showResultValidation(element, result) {
+    result && element.classList.add(styles.valid)
+    !result && element.classList.add(styles.invalid)
+  }
+
+  resetResultValidation(element) {
+    element.classList.remove(styles.valid, styles.invalid)
   }
 }

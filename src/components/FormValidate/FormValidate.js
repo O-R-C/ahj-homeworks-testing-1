@@ -13,10 +13,14 @@ export default class FormValidate {
   }
 
   #createElement() {
-    const form = new Form({ classes: styles.form }).element
+    const form = new Form({ classes: styles.formValidate }).element
     const input = new Input({ classes: styles.input, placeholder: 'Credit card number' })
       .element
-    const button = new Button({ title: 'Click to Validate' }).element
+    const button = new Button({
+      classes: styles.btnValidate,
+      type: 'submit',
+      title: 'Click to Validate',
+    }).element
 
     form.append(input, button)
 
