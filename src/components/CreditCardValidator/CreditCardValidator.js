@@ -34,7 +34,7 @@ export default class CreditCardValidator {
     this.#form = this.#app.querySelector('[class*="formValidate"]')
     this.#resultSection = this.#app.querySelector('[class*="result"]')
     this.#cards = [...this.#app.querySelector('[class*="cards"]').children]
-    this.#inputCardNumber = this.#app.querySelector('[name="cardNumber"')
+    this.#inputCardNumber = this.#app.querySelector('[name="cardNumber"]')
   }
 
   /**
