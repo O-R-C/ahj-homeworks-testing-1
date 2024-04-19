@@ -50,3 +50,8 @@ div[class*='cards'] div[class*='Mir'] {
   content: 'wrong number';
   color: red;
 }
+
+.cardBlur {
+  filter: grayscale(1);
+  opacity: 0.6;
+}

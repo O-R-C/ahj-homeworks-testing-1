@@ -1,4 +1,5 @@
 import CreditCardValidatorUI from './CreditCardValidatorUI'
+import { getSystem } from './getSystems'
 import { checkNumber, clearNumber, getTitle } from './utility'
 
 export default class CreditCardValidator {
@@ -30,9 +31,10 @@ export default class CreditCardValidator {
    * Ищем и добавляем элементы
    */
   #addElements() {
-    this.#inputCardNumber = this.#app.querySelector('input')
     this.#form = this.#app.querySelector('[class*="formValidate"]')
     this.#resultSection = this.#app.querySelector('[class*="result"]')
+    this.#cards = [...this.#app.querySelector('[class*="cards"]').children]
+    this.#inputCardNumber = this.#app.querySelector('[name="cardNumber"')
   }
 
   /**
@@ -41,6 +43,7 @@ export default class CreditCardValidator {
   #addListeners() {
     this.#inputCardNumber.addEventListener('input', this.#onInput)
     this.#form.addEventListener('submit', this.#onSubmit)
+    this.#form.addEventListener('reset', this.#onReset)
   }
 
   /**
@@ -49,8 +52,11 @@ export default class CreditCardValidator {
   #onInput = () => {
     this.#inputCardNumber.verified && this.#clearResult()
 
-    this.#inputCardNumber.value = clearNumber(this.#inputCardNumber.value)
+    const value = this.#inputCardNumber.value
+    const system = getSystem(value)
+    this.#inputCardNumber.value = clearNumber(value)
     this.#renderResult()
+    this.#showSystem(system)
   }
 
   /**
@@ -68,8 +74,25 @@ export default class CreditCardValidator {
     this.#resultSection.textContent = getTitle(this.#inputCardNumber.value)
   }
 
+  #showSystem(system) {
+    this.#cards.forEach((card) => this.#ui.showSystem(card))
+
+    system && this.#blurSystems(system)
+  }
+
+  #blurSystems(system) {
+    const blurCards = this.#cards.filter((card) => !card.classList.contains(system))
+    blurCards.forEach((card) => this.#ui.blurSystems(card))
+  }
+
   #clearResult() {
     this.#inputCardNumber.verified = false
     this.#ui.resetResultValidation(this.#resultSection)
+  }
+
+  #onReset = (evt) => {
+    evt.preventDefault()
+    this.#inputCardNumber.value = ''
+    this.#renderResult()
   }
 }

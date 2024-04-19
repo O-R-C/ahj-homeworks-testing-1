@@ -4,4 +4,6 @@
   background: none;
   border-radius: 5px;
   border: 2px solid gray;
+
+  cursor: pointer;
 }

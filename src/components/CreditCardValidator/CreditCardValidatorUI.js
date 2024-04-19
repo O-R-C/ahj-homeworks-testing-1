@@ -32,4 +32,12 @@ export default class CreditCardValidatorUI {
   resetResultValidation(element) {
     element.classList.remove(styles.valid, styles.invalid)
   }
+
+  showSystem(element) {
+    element.classList.remove(styles.cardBlur)
+  }
+
+  blurSystems(element) {
+    element.classList.add(styles.cardBlur)
+  }
 }

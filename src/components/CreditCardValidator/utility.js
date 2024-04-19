@@ -1,3 +1,8 @@
+/**
+ * Проверяет номер карты по алгоритму Луна
+ * @param {String} number номер карты
+ * @returns boolean
+ */
 export const checkNumber = (number) => {
   const length = number.length
 
@@ -15,6 +20,11 @@ export const checkNumber = (number) => {
   return result % 10 ? false : true
 }
 
+/**
+ *
+ * @param {String} number номер карты
+ * @returns форматированный номер
+ */
 export const getTitle = (number) => {
   !number && (number = 'XXXXXXXXXXXXXXXX')
 
@@ -24,6 +34,11 @@ export const getTitle = (number) => {
   }, '')
 }
 
+/**
+ * Форматирует номер - удаляет все не цифры
+ * @param {String} number номер карты
+ * @returns номер карты - только цифры
+ */
 export const clearNumber = (number) => {
   return number.replace(/\D/g, '')
 }

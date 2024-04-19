@@ -17,6 +17,7 @@ export default class Input {
    * {
    * classes = [styles.input],
    * id = '',
+   * name = '',
    * type = 'text',
    * required = true,
    * placeholder = '...'
@@ -61,6 +62,7 @@ export default class Input {
     element.classList.add(...this.#getClasses(this.#params.classes))
 
     this.#params.id && (element.id = this.#params.id)
+    this.#params.name && (element.name = this.#params.name)
 
     return element
   }
