@@ -33,7 +33,7 @@
     "build:dev": "webpack --mode=development",
     "lint": "eslint . --fix",
     "test": "jest",
-    "coverage": "jest --coverage --passWithNoTests",
+    "coverage": "jest --coverage",
     "preshow:coverage": "npm run coverage",
     "preshow:dist": "npm run build"
   }
