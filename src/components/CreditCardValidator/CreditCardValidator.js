@@ -94,5 +94,7 @@ export default class CreditCardValidator {
     evt.preventDefault()
     this.#inputCardNumber.value = ''
     this.#renderResult()
+    this.#clearResult()
+    this.#showSystem()
   }
 }
