@@ -37,7 +37,7 @@
     "lint": "eslint . --fix",
     "test": "jest --testPathPattern=./js/",
     "e2e": "jest --testPathPattern=./e2e/ runInBand",
-    "coverage": "jest --coverage",
+    "coverage": "jest --coverage --testPathPattern=./js/",
     "preshow:coverage": "npm run coverage",
     "preshow:dist": "npm run build"
   }
